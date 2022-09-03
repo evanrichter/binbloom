@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}:${{ github.GITHUB_REF }}
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
@@ -41,9 +41,9 @@ jobs:
           cd mayhem
           nix-build
           docker load < ./result
-          docker tag binbloom:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          echo docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          docker tag binbloom:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
+          echo docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
 
     outputs:
       image: ${{ steps.meta.outputs.tags }}
