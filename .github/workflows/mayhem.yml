@@ -41,9 +41,9 @@ jobs:
           cd mayhem
           nix-build
           docker load < ./result
-          docker tag binbloom:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
-          echo docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
-          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.GITHUB_REF }}
+          docker tag binbloom:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF }}
+          echo docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF }}
 
     outputs:
       image: ${{ steps.meta.outputs.tags }}
