@@ -41,6 +41,7 @@ jobs:
           cd mayhem
           nix-build
           docker load < ./result
+          docker tag binbloom:latest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     outputs:
