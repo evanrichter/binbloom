@@ -2,4 +2,4 @@ project: binbloom
 target: binbloom
 
 cmds:
-  - cmd: /bin/binbloom $$
+  - cmd: /bin/binbloom @@
