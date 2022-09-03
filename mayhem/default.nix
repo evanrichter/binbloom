@@ -14,6 +14,7 @@ rec {
   build = buildImage {
     name = "binbloom";
     tag = "latest";
-    contents = [ binbloom ];
+    created = "now";
+    copyToRoot = [ binbloom ];
   };
 }
