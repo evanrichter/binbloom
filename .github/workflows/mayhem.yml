@@ -34,6 +34,7 @@ jobs:
       - run: |
           cd mayhem
           nix-build
+          docker load < ./result
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
     outputs:
