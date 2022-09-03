@@ -5,6 +5,7 @@ let
   binbloom = pkgs.binbloom.overrideAttrs (old: {
     version = "git";
     src = ../.;
+    NIX_CFLAGS_COMPILE = [ "-fsanitize=address" ];
   });
 
   buildImage = pkgs.dockerTools.buildImage;
